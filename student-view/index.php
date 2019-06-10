@@ -53,7 +53,7 @@ if (!$conn) {
        <div class="filter-div">
          <div class="fd2 fd2-title">
            Search by type - <?php
-          
+           $_POST['type'] = isset($_POST['type']) ? $_POST['type'] : '';
            if ($_POST['type']=='wfh') {
              echo "Work From Home";
            }
