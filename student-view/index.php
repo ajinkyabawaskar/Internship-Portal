@@ -12,6 +12,7 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+
 <?php
 $servername = "localhost";
 $username = "root";
@@ -42,6 +43,60 @@ if (!$conn) {
         <?php
         $sql = "SELECT * FROM internship";
         $result = mysqli_query($conn, $sql);
+
+        echo '<div class="filter-card card">';
+        ?>
+
+        <form action="" method="post">
+          <!-- <input type="radio" name="term" value="wfh"/>wfh
+          <input type="radio" name="term" value="ino" />ino  -->
+       <div class="filter-div">
+         <div class="fd2 fd2-title">
+           Search by type - <?php
+          
+           if ($_POST['type']=='wfh') {
+             echo "Work From Home";
+           }
+           elseif ($_POST['type']=='ino') {
+            echo "In Office";
+          }
+          else {
+            echo "All Internships";
+          }
+           ?>
+         </div>
+         <div class="fd2">
+          <div class="fd1">
+            <input type="submit" value="wfh" name="type" class="type-filter type-filter1" id= "wfh" onclick="changeColor()"/>
+            <label class="" for="wfh"> Work From Home</label> 
+          </div>
+            <div class="fd1">
+              <input type="submit" value="ino" name="type" class="type-filter type-filter1" id= "wfh" />
+              <label class="" for="wfh">In Office</label>   
+            </div>
+            <div class="fd1">
+              <input type="submit" value="" name="type" class="type-filter" id= "wfh"/>
+              <label class="" for="wfh">All</label> 
+            </div>
+          </div>
+        </form> 
+        </div>
+      </div>
+      <div class="filter-card card">
+        <!-- <form  method="post" action=""  id="searchform"> 
+      <input  type="text" name="name"> 
+      <input  type="submit" name="textsearch" value="Search"> 
+	    </form>  -->
+
+        <?php
+        // $test = $_POST['textsearch'];
+        // echo $test;
+        if (!empty($_POST['type'])) {
+        $search = $_POST['type'];
+        $sql .= " WHERE type = '$search'";
+        }
+        $result = mysqli_query($conn, $sql);
+        echo '</div>';
             if ($result->num_rows > 0) {
                 // output data of each row
                 while($row = $result->fetch_assoc()) {
@@ -121,4 +176,5 @@ if (!$conn) {
         ?>
     <!-- </div> -->
 </div>
+<script src="main.js"></script>
 </html>

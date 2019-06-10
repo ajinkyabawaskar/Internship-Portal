@@ -102,3 +102,43 @@ body {
     flex-flow: column wrap;
     justify-content: space-between;
 }
+
+.filter-card {
+    width: 48%;
+}
+
+.type-filter {
+    background: var(--theme-blue);
+    border-style: none;
+    color: transparent;
+    height: 15px;
+    width: 15px;
+}
+
+.type-filter {
+    line-height: 2px;
+}
+
+.filter-div {
+    margin: 5px 0px -10px 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.fd1 {
+    flex: 1;
+    /* align-content: center;
+    text-align: center; */
+}
+
+.fd2 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+.fd2-title {
+    font-size: 0.9rem;
+}
