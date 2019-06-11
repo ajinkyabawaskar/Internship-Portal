@@ -10,7 +10,7 @@ body {
 }
 
 .card {
-    width: 48%;
+    width: 47%;
     margin: 5px;
     /* padding: 2%;*/
     padding-bottom: 0.8rem;
@@ -104,7 +104,7 @@ body {
 }
 
 .filter-card {
-    width: 48%;
+    width: 47%;
 }
 
 .type-filter {
@@ -141,4 +141,42 @@ body {
 
 .fd2-title {
     font-size: 0.9rem;
+}
+
+input[type=text] {
+    width: 145px;
+    height: 25px;
+    -webkit-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+    border: none;
+    border-bottom: 1px solid var(--theme-blue);
+}
+
+input[type=text]:focus {
+    width: 86%;
+}
+
+input::placeholder {
+    color: var(--dark-bg);
+}
+
+.invi {
+    background: #00adb5;
+    visibility: hidden;
+}
+
+.search-bar {
+    margin-left: 4%;
+}
+
+.search-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    color: var(--theme-white);
+}
+
+.search-button {
+    background: var(--theme-blue);
+    width: 60px;
 }

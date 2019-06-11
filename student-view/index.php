@@ -84,12 +84,30 @@ if (!$conn) {
         <!-- <form  method="post" action=""  id="searchform"> 
       <input  type="text" name="name"> 
       <input  type="submit" name="textsearch" value="Search"> 
-	    </form>  -->
+      </form>  -->
+      <div class="search-bar">
       <form action="" method="post">
-          <input type="text" name="keywords">
-          <input type="submit" value = "Search">
-      </form>
-    
+        <!-- <label for="searchbar">Search</label> -->
+          <input type="text" name="keywords"placeholder="Search by Company, location or skills"id="searchbar">
+            
+          <input type="submit" value = "Search" class="invi">
+        </form>     
+      </div>
+      <div class="search-button-container">
+        <div class="search-button">
+          dfd
+        </div>
+        <div class="search-button">
+          dfd
+        </div>
+        <div class="search-button">
+          dfd
+        </div>
+        <div class="search-button">
+          dfd
+        </div>         
+      </div>
+      
         <?php
         // $test = $_POST['textsearch'];
         // echo $test;=
@@ -106,7 +124,7 @@ if (!$conn) {
         if(!empty($_POST['keywords'])) {
           $keywords = $_POST['keywords'];
             $sql .= " WHERE (skills LIKE '%{$keywords}%')";
-            echo $sql;
+            // echo $sql;
           }
         
         $result = mysqli_query($conn, $sql);
