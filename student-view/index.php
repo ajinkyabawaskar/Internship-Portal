@@ -78,38 +78,6 @@ if (!$conn) {
             </div>
           </div>
         </form> 
-        <form>
-        <div class="fd2 fd2-title">
-           Search by type - <?php
-           $_POST['type'] = isset($_POST['type']) ? $_POST['type'] : '';
-           if ($_POST['type']=='wfh') {
-             echo "Work From Home";
-           }
-           elseif ($_POST['type']=='ino') {
-            echo "In Office";
-          }
-          elseif ($_POST['type']=='all') {
-            echo "All Internships";
-          }
-           ?>
-         </div>
-         <div class="fd2">
-          <div class="fd1">
-            <input type="submit" value="wfh" name="type" class="type-filter type-filter1" id= "wfh" onclick="changeColor()"/>
-            <label class="" for="wfh"> Work From Home</label> 
-          </div>
-            <div class="fd1">
-              <input type="submit" value="ino" name="type" class="type-filter type-filter1" id= "wfh" />
-              <label class="" for="wfh">In Office</label>   
-            </div>
-            <div class="fd1">
-              <input type="submit" value="all" name="type" class="type-filter" id= "wfh"/>
-              <label class="" for="wfh">All</label> 
-            </div>
-          </div>
-        
-        
-        </form>
         </div>
       </div>
       <div class="filter-card card">
