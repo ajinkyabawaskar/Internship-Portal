@@ -48,8 +48,6 @@ if (!$conn) {
         ?>
 
         <form action="" method="post">
-          <!-- <input type="radio" name="term" value="wfh"/>wfh
-          <input type="radio" name="term" value="ino" />ino  -->
        <div class="filter-div">
          <div class="fd2 fd2-title">
            Search by type - <?php
@@ -60,7 +58,7 @@ if (!$conn) {
            elseif ($_POST['type']=='ino') {
             echo "In Office";
           }
-          else {
+          elseif ($_POST['type']=='all') {
             echo "All Internships";
           }
            ?>
@@ -75,11 +73,43 @@ if (!$conn) {
               <label class="" for="wfh">In Office</label>   
             </div>
             <div class="fd1">
-              <input type="submit" value="" name="type" class="type-filter" id= "wfh"/>
+              <input type="submit" value="all" name="type" class="type-filter" id= "wfh"/>
               <label class="" for="wfh">All</label> 
             </div>
           </div>
         </form> 
+        <form>
+        <div class="fd2 fd2-title">
+           Search by type - <?php
+           $_POST['type'] = isset($_POST['type']) ? $_POST['type'] : '';
+           if ($_POST['type']=='wfh') {
+             echo "Work From Home";
+           }
+           elseif ($_POST['type']=='ino') {
+            echo "In Office";
+          }
+          elseif ($_POST['type']=='all') {
+            echo "All Internships";
+          }
+           ?>
+         </div>
+         <div class="fd2">
+          <div class="fd1">
+            <input type="submit" value="wfh" name="type" class="type-filter type-filter1" id= "wfh" onclick="changeColor()"/>
+            <label class="" for="wfh"> Work From Home</label> 
+          </div>
+            <div class="fd1">
+              <input type="submit" value="ino" name="type" class="type-filter type-filter1" id= "wfh" />
+              <label class="" for="wfh">In Office</label>   
+            </div>
+            <div class="fd1">
+              <input type="submit" value="all" name="type" class="type-filter" id= "wfh"/>
+              <label class="" for="wfh">All</label> 
+            </div>
+          </div>
+        
+        
+        </form>
         </div>
       </div>
       <div class="filter-card card">
@@ -87,14 +117,30 @@ if (!$conn) {
       <input  type="text" name="name"> 
       <input  type="submit" name="textsearch" value="Search"> 
 	    </form>  -->
-
+      <form action="" method="post">
+          <input type="text" name="keywords">
+          <input type="submit" value = "Search">
+      </form>
+    
         <?php
         // $test = $_POST['textsearch'];
-        // echo $test;
+        // echo $test;=
         if (!empty($_POST['type'])) {
-        $search = $_POST['type'];
-        $sql .= " WHERE type = '$search'";
+          if($_POST['type'] != 'all') {
+          $search = $_POST['type'];
+          $sql .= " WHERE type = '$search'";
+          }
+          if ($_POST['type'] =='all') {
+            $sql .= " WHERE (type = 'wfh' OR type = 'ino')";
+          }
         }
+        
+        if(!empty($_POST['keywords'])) {
+          $keywords = $_POST['keywords'];
+            $sql .= " WHERE (skills LIKE '%{$keywords}%')";
+            echo $sql;
+          }
+        
         $result = mysqli_query($conn, $sql);
         echo '</div>';
             if ($result->num_rows > 0) {
