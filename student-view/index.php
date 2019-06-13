@@ -47,7 +47,7 @@ if (!$conn) {
         echo '<div class="filter-card card">';
         ?>
 
-        <form action="" method="post">
+      <form action="" method="post">
        <div class="filter-div">
          <div class="fd2 fd2-title">
            Search by type - <?php
@@ -88,7 +88,7 @@ if (!$conn) {
       <div class="search-bar">
       <form action="" method="post">
         <!-- <label for="searchbar">Search</label> -->
-          <input type="text" name="keywords"placeholder="Search by Company, location or skills"id="searchbar">
+          <input type="text" name="keywords" placeholder="Search by Company, location or skills" id="searchbar">
             
           <input type="submit" value = "Search" class="invi">
         </form>     
@@ -123,8 +123,8 @@ if (!$conn) {
         
         if(!empty($_POST['keywords'])) {
           $keywords = $_POST['keywords'];
-            $sql .= " WHERE (skills LIKE '%{$keywords}%')";
-            // echo $sql;
+            $sql .= " WHERE (skills LIKE '%{$keywords}%' OR location LIKE '%{$keywords}%' OR company LIKE '%{$keywords}%' or title LIKE '%{$keywords}%')";
+            echo $sql;
           }
         
         $result = mysqli_query($conn, $sql);
