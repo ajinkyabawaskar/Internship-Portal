@@ -124,7 +124,7 @@ if (!$conn) {
         if(!empty($_POST['keywords'])) {
           $keywords = $_POST['keywords'];
             $sql .= " WHERE (skills LIKE '%{$keywords}%' OR location LIKE '%{$keywords}%' OR company LIKE '%{$keywords}%' or title LIKE '%{$keywords}%')";
-            echo $sql;
+            // echo $sql;
           }
         
         $result = mysqli_query($conn, $sql);
