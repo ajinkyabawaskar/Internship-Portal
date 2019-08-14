@@ -7,6 +7,6 @@
     <title>SSGMCE - Internships</title>
 </head>
 <body>
-    
+        GIT is working!    
 </body>
 </html>
